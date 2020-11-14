@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar">
+    <div class="titulo">
+        <span style="align-items: center;">Pokédex</span>
+    </div>
+    <div class="pesquisa">
+        <form>
+            <input class="input" [formControl]="name">
+        </form>
+
+        <button id="basic" type="button" mat-button (click)="getPoke()">
+            Procurar
+        </button>
+    </div>
+
+</mat-toolbar>
+
+<section class="container">
+
+    <div class="visor">
+        <div *ngIf="pokeInfo">
+            <img class="src" src="{{pokeImage}}" alt="">
+            <h1>Nome: {{pokeInfo}}</h1>
+        </div>
+    </div>
+
+    <div class="habilidades">
+        <div class="rowUm" *ngFor="let item of pokeAbilits">
+            <h2>{{item.ability.name}}</h2>
+        </div>
+    </div>
+
+
+</section>
